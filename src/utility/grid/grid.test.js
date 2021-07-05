@@ -1,4 +1,4 @@
-import { getGridSize, generateInitialGrid, generateUniqueTuples, getUpdatedCellValue, DIFFICULTY } from './grid';
+import { getGridSize, generateInitialGrid, generateUniqueTuples, DIFFICULTY } from './grid';
 
 expect.extend({
     toContainOnly(received, argument) {
@@ -41,27 +41,6 @@ test('generateInitialGrid(size) returns correct 2D-array based on passed difficu
     expect(hardGridArray[0]).toHaveLength(20);
     expect(hardGridArray[0]).toContainOnly({ value: "unselected" });
 });
-
-describe('getUpdatedCellValue(rightClick, currentCell) utility', () => {
-    // [expectedResult, firstArg, secondArg]
-    const cases = [
-        ['selected', false, { value: 'unselected' }],
-        ['flagged', true, { value: 'unselected' }],
-        ['selected', false, { value: 'selected' }],
-        ['selected', true, { value: 'selected' }],
-        ['selected', false, { value: 'flagged' }],
-        ['unselected', true, { value: 'flagged' }],
-    ];
-
-    test.each(cases)(
-        "getUpdatedCellValue(rightClick, currentCell) should return %p when given %p and %p as arguments",
-        (expectedResult, firstArg, secondArg) => {
-            const result = getUpdatedCellValue(firstArg, secondArg);
-            expect(result).toBe(expectedResult);
-        }
-    )
-});
-
 
 describe('generateUniqueTuples(n, max) utility', () => {
     test('generates correct amount of tuples', () => {

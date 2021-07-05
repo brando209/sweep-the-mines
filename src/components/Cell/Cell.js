@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cell.css';
 
-export default function Cell({ value, onClick, ...props }) {
+export default function Cell({ value, display, onClick, ...props }) {
     const handleLeftClick = () => {
         onClick('left');
     }
@@ -18,6 +18,8 @@ export default function Cell({ value, onClick, ...props }) {
             onContextMenu={handleRightClick} 
             data-testid="cell-element"
             { ...props } 
-        />
+        >
+            {display}
+        </div>
     )
 }
