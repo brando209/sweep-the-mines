@@ -98,7 +98,7 @@ export const updateGrid = (grid, rowIdx, colIdx) => {
     let currentCell = grid[rowIdx][colIdx];
     if(currentCell.isBomb) { 
         grid[rowIdx] = [...grid[rowIdx]];  //DO NOT MUTATE ROW, MAKE COPY
-        grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: 'bombed', display: "!!" }
+        grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED, display: "!!" }
         return grid; 
     }
 
@@ -124,13 +124,14 @@ export const updateGrid = (grid, rowIdx, colIdx) => {
                     visited.set(`(${x},${y})`, true);
                 } 
             });
-        }
+        }   
     }
 
     return grid;
 }
 
 export const toggleFlag = (grid, rowIdx, colIdx) => {
+    if(grid[rowIdx][colIdx].value === GRID_VALUE.SELECTED) return grid;
     const newValue = (grid[rowIdx][colIdx].value === GRID_VALUE.UNSELECTED) ? GRID_VALUE.FLAGGED : GRID_VALUE.UNSELECTED;
     grid[rowIdx] = [...grid[rowIdx]];   //DO NOT MUTATE ROW, MAKE COPY
     grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: newValue}
@@ -141,10 +142,14 @@ export const checkWin = (grid) => {
     let win = true;
     for(let row of grid) {
         for(let cell of row) {
-            if(cell.value === GRID_VALUE.UNSELECTED || (cell.value === GRID_VALUE.FLAGGED && cell.isBomb === false)) {
-                win = false;
-                break;
+            let values = cell.value.split(' ');
+            for(let value of values) {
+                if(value === GRID_VALUE.UNSELECTED || (value === GRID_VALUE.FLAGGED && cell.isBomb === false)) {
+                    win = false;
+                    break;
+                }
             }
+            if(!win) break;
         };
         if(!win) break;
     };
@@ -155,10 +160,14 @@ export const checkLose = (grid) => {
     let lose = false;
     for(let row of grid) {
         for(let cell of row) {
-            if(cell.value === GRID_VALUE.BOMBED && cell.isBomb === true) {
-                lose = true;
-                break;
+            let values = cell.value.split(' ');
+            for(let value of values) {
+                if(value === GRID_VALUE.BOMBED && cell.isBomb === true) {
+                    lose = true;
+                    break;
+                }
             }
+            if(lose) break;
         };
         if(lose) break;
     };

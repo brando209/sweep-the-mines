@@ -30,7 +30,7 @@ export default function Grid({ gridDifficulty, resetToggle, onGameOver }) {
         setGrid(prevGrid => {
             return prevGrid.map(row => (
                 row.map(cell => {
-                    if(cell.isBomb) return { ...cell, value: GRID_VALUE.BOMBED, display: "!!"};
+                    if(cell.isBomb) return { ...cell, value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED, display: "!!"};
                     else return cell;
                 })
             ))

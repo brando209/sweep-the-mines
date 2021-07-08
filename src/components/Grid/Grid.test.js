@@ -28,7 +28,8 @@ test('renders hard grid', () => {
 });
 
 test('left click on "unselected" grid cell causes cell to be "selected"', () => {
-    render(<Grid gridDifficulty={DIFFICULTY.EASY} />);
+    const fn = jest.fn();
+    render(<Grid gridDifficulty={DIFFICULTY.EASY} onGameOver={fn}/>);
 
     const gridRowElements = screen.getAllByTestId('grid-row-element');
     const gridCell = gridRowElements[0].childNodes[0];
@@ -60,7 +61,8 @@ test('right click on "flagged" grid cell causes cell to be "unselected"', () => 
 });
 
 test('left click on "flagged" grid cell causes cell to be "selected"', () => {
-    render(<Grid gridDifficulty={DIFFICULTY.EASY} />);
+    const fn = jest.fn();
+    render(<Grid gridDifficulty={DIFFICULTY.EASY} onGameOver={fn} />);
 
     const gridRowElements = screen.getAllByTestId('grid-row-element');
     const gridCell = gridRowElements[0].childNodes[0];
@@ -68,5 +70,20 @@ test('left click on "flagged" grid cell causes cell to be "selected"', () => {
     fireEvent.contextMenu(gridCell);
     expect(gridCell).toHaveClass('flagged');
     fireEvent.click(gridCell);
+    expect(gridCell).toHaveClass('selected');
+});
+
+test('left or right click on "selected" grid cell causes no change', () => {
+    const fn = jest.fn();
+    render(<Grid gridDifficulty={DIFFICULTY.EASY} onGameOver={fn} />);
+
+    const gridRowElements = screen.getAllByTestId('grid-row-element');
+    const gridCell = gridRowElements[0].childNodes[0];
+    expect(gridCell).toHaveClass('unselected');
+    fireEvent.click(gridCell);
+    expect(gridCell).toHaveClass('selected');
+    fireEvent.click(gridCell);
+    expect(gridCell).toHaveClass('selected');
+    fireEvent.contextMenu(gridCell);
     expect(gridCell).toHaveClass('selected');
 });
