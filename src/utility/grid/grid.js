@@ -98,7 +98,7 @@ export const updateGrid = (grid, rowIdx, colIdx) => {
     let currentCell = grid[rowIdx][colIdx];
     if(currentCell.isBomb) { 
         grid[rowIdx] = [...grid[rowIdx]];  //DO NOT MUTATE ROW, MAKE COPY
-        grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED, display: "!!" }
+        grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED }
         return grid; 
     }
 

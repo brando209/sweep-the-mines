@@ -1,6 +1,7 @@
 .overlay {
     background: transparent;
     pointer-events: auto;
+    height: 80vh;
 }
 
 .overlay.active > .overlay-children {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cell.css';
 
-export default function Cell({ value, display, onClick, ...props }) {
+export default function Cell({ value, display = "", onClick, ...props }) {
     const handleLeftClick = () => {
         onClick('left');
     }
@@ -9,6 +9,13 @@ export default function Cell({ value, display, onClick, ...props }) {
     const handleRightClick = (e) => {
         e.preventDefault();
         onClick('right');
+    }
+
+    let displayComponent = null;
+    if(typeof display === "string" || typeof display === "number") {
+        displayComponent = display;
+    } else {
+        displayComponent = <img src={display.src} alt="" />
     }
 
     return (
@@ -19,7 +26,7 @@ export default function Cell({ value, display, onClick, ...props }) {
             data-testid="cell-element"
             { ...props } 
         >
-            {display}
+            {displayComponent}
         </div>
     )
 }

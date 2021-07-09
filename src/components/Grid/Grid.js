@@ -4,6 +4,8 @@ import Cell from '../Cell/Cell';
 import { generateInitialGrid, updateGrid, toggleFlag, checkWin, checkLose, GRID_VALUE } from '../../utility/grid/grid';
 import './Grid.css';
 
+import bomb from '../../assets/bomb.png';
+import flag from '../../assets/blue-flag.png';
 
 export default function Grid({ gridDifficulty, resetToggle, onGameOver }) {
     const [grid, setGrid] = useState(generateInitialGrid(gridDifficulty));
@@ -30,7 +32,7 @@ export default function Grid({ gridDifficulty, resetToggle, onGameOver }) {
         setGrid(prevGrid => {
             return prevGrid.map(row => (
                 row.map(cell => {
-                    if(cell.isBomb) return { ...cell, value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED, display: "!!"};
+                    if(cell.isBomb) return { ...cell, value: GRID_VALUE.SELECTED + " " + GRID_VALUE.BOMBED, display: { src: bomb }};
                     else return cell;
                 })
             ))
@@ -47,7 +49,7 @@ export default function Grid({ gridDifficulty, resetToggle, onGameOver }) {
     }
 
     return (
-        <div className="grid">
+        <div className={`grid ${gridDifficulty}`}>
             {grid.map((row, i) => (
                 <div 
                     className="grid-row" 
