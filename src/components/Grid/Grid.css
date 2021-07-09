@@ -26,3 +26,17 @@
     height: 1.2rem;
     line-height: 1.2rem;
 }
+
+@media (max-width: 530px) {
+    .grid.easy .grid-row > *, .grid.medium .grid-row > * {
+        height: 5vmin !important;
+        width: 5vmin !important;
+        line-height: 5vmin !important;
+    }
+    
+    .grid.hard .grid-row > * {
+        height: 4vmin !important;
+        width: 4vmin !important;
+        line-height: 4vmin !important;
+    }
+}

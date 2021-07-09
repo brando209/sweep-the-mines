@@ -2,6 +2,7 @@
   text-align: center;
   background-color: rgb(167, 167, 167);
   height: 100vh;
+  flex-wrap: wrap;
 }
 
 .App-logo {
@@ -64,4 +65,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media (max-width: 530px) {  
+  .App-header {
+    min-height: 15vh;
+    flex-wrap: wrap;
+  }
+
+  .App-header > p {
+    margin: 0 1rem;
+    min-width: 20vw;
+    flex: 12;
+  }
+
+  .App-header > .difficulty-select, .App-header > .reset-button {
+    margin: 0 30%;
+  }
+
 }
