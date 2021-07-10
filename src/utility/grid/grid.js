@@ -130,11 +130,12 @@ export const updateGrid = (grid, rowIdx, colIdx) => {
     return grid;
 }
 
-export const toggleFlag = (grid, rowIdx, colIdx) => {
+export const toggleFlag = (grid, rowIdx, colIdx, flagIcon) => {
     if(grid[rowIdx][colIdx].value === GRID_VALUE.SELECTED) return grid;
     const newValue = (grid[rowIdx][colIdx].value === GRID_VALUE.UNSELECTED) ? GRID_VALUE.FLAGGED : GRID_VALUE.UNSELECTED;
+    const display = (newValue === GRID_VALUE.FLAGGED) ? { src: flagIcon } : "";
     grid[rowIdx] = [...grid[rowIdx]];   //DO NOT MUTATE ROW, MAKE COPY
-    grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: newValue}
+    grid[rowIdx][colIdx] = { ...grid[rowIdx][colIdx], value: newValue, display: display }
     return grid;
 }
 

@@ -8,9 +8,8 @@
 }
 
 .cell > * {
-    background: transparent;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 90%;
 }
 
 .cell:hover {
@@ -30,9 +29,9 @@
 }
 
 .cell.flagged {
-    background-color: rgb(91, 91, 233);
+    background-color: rgb(201, 201, 201);
 }
 
 .cell.bombed {
-    background-color: transparent;
+    background: rgb(201, 201, 201);
 }

@@ -42,9 +42,9 @@ export default function Grid({ gridDifficulty, resetToggle, onGameOver }) {
     const handleCellClick = (type, rowIdx, colIdx) => {
         setGrid(prevGrid => {
             if(type === "right"){
-                return toggleFlag([...prevGrid], rowIdx, colIdx);
+                return toggleFlag([...prevGrid], rowIdx, colIdx, flag);
             }
-            return updateGrid([...prevGrid], rowIdx, colIdx);
+            return updateGrid([...prevGrid], rowIdx, colIdx,);
         });
     }
 
