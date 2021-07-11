@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sweep-the-mines/static/css/main.9d889104.chunk.css",
+    "main.js": "/sweep-the-mines/static/js/main.691ac376.chunk.js",
+    "main.js.map": "/sweep-the-mines/static/js/main.691ac376.chunk.js.map",
+    "runtime-main.js": "/sweep-the-mines/static/js/runtime-main.9508372b.js",
+    "runtime-main.js.map": "/sweep-the-mines/static/js/runtime-main.9508372b.js.map",
+    "static/js/2.a4964276.chunk.js": "/sweep-the-mines/static/js/2.a4964276.chunk.js",
+    "static/js/2.a4964276.chunk.js.map": "/sweep-the-mines/static/js/2.a4964276.chunk.js.map",
+    "static/js/3.7cfed627.chunk.js": "/sweep-the-mines/static/js/3.7cfed627.chunk.js",
+    "static/js/3.7cfed627.chunk.js.map": "/sweep-the-mines/static/js/3.7cfed627.chunk.js.map",
+    "index.html": "/sweep-the-mines/index.html",
+    "static/css/main.9d889104.chunk.css.map": "/sweep-the-mines/static/css/main.9d889104.chunk.css.map",
+    "static/js/2.a4964276.chunk.js.LICENSE.txt": "/sweep-the-mines/static/js/2.a4964276.chunk.js.LICENSE.txt",
+    "static/media/blue-flag.ccbeceae.png": "/sweep-the-mines/static/media/blue-flag.ccbeceae.png",
+    "static/media/bomb.f525e4e1.png": "/sweep-the-mines/static/media/bomb.f525e4e1.png",
+    "static/media/logo.6ce24c58.svg": "/sweep-the-mines/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9508372b.js",
+    "static/js/2.a4964276.chunk.js",
+    "static/css/main.9d889104.chunk.css",
+    "static/js/main.691ac376.chunk.js"
+  ]
+}
